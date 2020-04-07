@@ -15,16 +15,6 @@ OrderedDict([
 ])
 )
 net.load_state_dict(torch.load('paras_mutant/model_paras.pkl'))
-# for name,param in net.named_parameters():
-#     param = torch.FloatTensor(np.ones(param.shape))
-#     #将第一个权重变为10
-#     # i= i+1
-#     # if i == 1:
-#     #     param[0][0] = 10
-#     print(name, param)
-# for name, param in net.state_dict().items():
-#     param = torch.FloatTensor(np.ones(param.shape))
-# print(net)
 train_set = torchvision.datasets.MNIST(
     root="./data",
     train=True,
