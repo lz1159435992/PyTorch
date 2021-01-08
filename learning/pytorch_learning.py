@@ -9,8 +9,6 @@ y = x.pow(2) + 0.2*torch.rand(x.size())  # noisy y data (tensor), shape=(100, 1)
 
 # The code below is deprecated in Pytorch 0.4. Now, autograd directly supports tensors
 # x, y = Variable(x, requires_grad=False), Variable(y, requires_grad=False)
-
-
 def save():
     # save net1
     net1 = torch.nn.Sequential(

@@ -14,15 +14,15 @@ OrderedDict([
     ("output", torch.nn.Linear(500, 10)),
 ])
 )
-net.load_state_dict(torch.load('mutants/model_paras.pkl'))
-for name,param in net.named_parameters():
-    #将第一个权重变为10
-    # i= i+1
-    # if i == 1:
-    #     param[0][0] = 10
-    print(name, param)
-    print(param.size())
-print(net)
+net.load_state_dict(torch.load('model_paras.pkl'))
+# for name,param in net.named_parameters():
+#     #将第一个权重变为10
+#     # i= i+1
+#     # if i == 1:
+#     #     param[0][0] = 10
+#     print(name, param)
+#     print(param.size())
+# print(net)
 train_set = torchvision.datasets.MNIST(
     root="./data",
     train=True,
@@ -55,10 +55,18 @@ for images, labels in test_loader:
     i=i+1
     images = images.reshape(-1, 28*28)
     #print(images)
+    z = net.fc1(images)
+    x = net.fc2(z)
+    c = net.fc3(x)
+    v = net.relu(c)
+    r = net.output(v)
+    print(z.shape)
+    #print (net.fc1(images))
+    #print(net.fc1(images))
     output = net(images)
-    print(output)
+    #print(output)
     _, predicted = torch.max(output, 1)
-    print(predicted)
+    #print(predicted)
     print('****************')
     if i == 1:
         a = predicted

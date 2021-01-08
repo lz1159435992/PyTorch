@@ -9,6 +9,7 @@ net = torch.nn.Sequential(
 OrderedDict([
     ("fc1", torch.nn.Linear(784, 500)),
     ("fc2", torch.nn.Linear(500, 500)),
+    ("new_layer", torch.nn.Linear(500, 500)),
     ("fc3", torch.nn.Linear(500, 500)),
     ("relu", torch.nn.ReLU()),
     ("output", torch.nn.Linear(500, 10)),
@@ -61,7 +62,7 @@ for images, labels in test_loader:
     total += labels.size(0)
     correct += (predicted == labels).sum().item()
     #获取预测标签和实际标签
-np.savetxt('predicted/output/labels.txt',b)
-np.savetxt('predicted/output/predicted.txt', a)
+# np.savetxt('predicted/all1/labels.txt',b)
+# np.savetxt('predicted/all1/predicted.txt', a)
 np.savetxt('predicted/output/predicted_10.txt',c.detach().numpy())
 print("The accuracy of total {} images: {}%".format(total, 100 * correct/total))
