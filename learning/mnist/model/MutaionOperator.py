@@ -573,7 +573,7 @@ def Neuron_Effect_Blocking():
     if not os.path.exists('/home/adv/jupyter_workspace/fault_localization/Neuron_Effect_Blocking/'):  # 若不存在路径则创建
         os.makedirs('/home/adv/jupyter_workspace/fault_localization/Neuron_Effect_Blocking/')
     dict = {1: [500, 784], 3: [500, 500], 5: [500, 500], 7: [10, 500]}
-    list = [1,3,5,7]
+    list = [1,3,5]
     list_ = []
     flag = False
     p = 0
@@ -720,9 +720,9 @@ def Neuron_Activation_Inverse():
 
 
 if __name__ == '__main__':
-    Neuron_Activation_Inverse()
-    Weight_Shuffing()
-    change_weight()
+    #Neuron_Activation_Inverse()
+    #Weight_Shuffing()
+    #change_weight()
     Neuron_Effect_Blocking()
     Neuron_Switch()
     # 交换同层的随机两个神经元
