@@ -570,10 +570,10 @@ def Neuron_Effect_Blocking():
         ])
     )
     # 循环创建文件
-    if not os.path.exists('E:/fault_localization/Neuron_Effect_Blocking/'):  # 若不存在路径则创建
-        os.makedirs('E:/fault_localization/Neuron_Effect_Blocking/')
+    if not os.path.exists('/home/adv/jupyter_workspace/fault_localization/Neuron_Effect_Blocking/'):  # 若不存在路径则创建
+        os.makedirs('/home/adv/jupyter_workspace/fault_localization/Neuron_Effect_Blocking/')
     dict = {1: [500, 784], 3: [500, 500], 5: [500, 500], 7: [10, 500]}
-    list = [5]
+    list = [1,3,5,7]
     list_ = []
     flag = False
     p = 0
@@ -603,10 +603,10 @@ def Neuron_Effect_Blocking():
                     param[x] = torch.FloatTensor(a)
                     #print(param[x])
                     if not os.path.exists(
-                            'E:/fault_localization/Neuron_Effect_Blocking/mutant_' + str(i-1) + '_' +str(x)+ '/'):  # 若不存在路径则创建
-                        os.makedirs('E:/fault_localization/Neuron_Effect_Blocking/mutant_' + str(i-1) + '_' +str(x)+  '/')
+                            '/home/adv/jupyter_workspace/fault_localization/Neuron_Effect_Blocking/mutant_' + str(i-1) + '_' +str(x)+ '/'):  # 若不存在路径则创建
+                        os.makedirs('/home/adv/jupyter_workspace/fault_localization/Neuron_Effect_Blocking/mutant_' + str(i-1) + '_' +str(x)+  '/')
 
-                    torch.save(net.state_dict(),'E:/fault_localization/Neuron_Effect_Blocking/mutant_' + str(i-1) + '_' +str(x)+  '/model_paras.pkl')
+                    torch.save(net.state_dict(),'/home/adv/jupyter_workspace/fault_localization/Neuron_Effect_Blocking/mutant_' + str(i-1) + '_' +str(x)+  '/model_paras.pkl')
 def Neuron_Switch():
     net = torch.nn.Sequential(
         OrderedDict([
@@ -622,7 +622,7 @@ def Neuron_Switch():
         os.makedirs('/home/adv/jupyter_workspace/fault_localization/Neuron_Switch/')
     dict = {1: [500, 784], 3: [500, 500], 5: [500, 500], 7: [10, 500]}
     # list = [1, 3, 5, 7]
-    list = [7]
+    list = [1,3,5,7]
     list_ = []
     flag = False
     p = 0
@@ -720,10 +720,10 @@ def Neuron_Activation_Inverse():
 
 
 if __name__ == '__main__':
-    Neuron_Activation_Inverse()
-    Weight_Shuffing()
+    #Neuron_Activation_Inverse()
+    #Weight_Shuffing()
     Neuron_Effect_Blocking()
-    change_weight()
+    #change_weight()
     Neuron_Switch()
     # 交换同层的随机两个神经元
     # x = random.randint(0, 10)
