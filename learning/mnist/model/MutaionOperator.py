@@ -64,8 +64,8 @@ def change_weight_(filepath1,filepath2):
     )
     net.load_state_dict(torch.load(filepath1+'model_paras.pkl'))
     # 循环创建文件
-    if not os.path.exists(filepath2+'\\'):  # 若不存在路径则创建
-        os.makedirs(filepath2+'\\')
+    if not os.path.exists(filepath2+'/'):  # 若不存在路径则创建
+        os.makedirs(filepath2+'/')
     m = 5
     list = [1, 3, 5, 7]
     for k in range(100):
@@ -90,19 +90,19 @@ def change_weight_(filepath1,filepath2):
                             param[a][b] = param[a][b] * m
                             list_.append([a, b])
                         if not os.path.exists(
-                                filepath2+'\\mutant_' + str(i) + '_' + str(a) + '_' + str(
-                                        b) + '\\'):  # 若不存在路径则创建
+                                filepath2+'/mutant_' + str(i) + '_' + str(a) + '_' + str(
+                                        b) + '/'):  # 若不存在路径则创建
                             os.makedirs(
-                                filepath2+'\\mutant_' + str(i) + '_' + str(a) + '_' + str(b) + '\\')
-                        # if not os.path.isfile(filepath2+'\\mutant_' + str(i) + '_' + str(a) + '_' + str(
-                        #                b) + '\\model_paras.pkl'):  # 无文件时创建
-                        #     # os.mknod(filepath2+'\\weight\\mutant_' + str(i) + '_' + str(a) + '_' + str(
-                        #     #            b) + '\\model_paras.pkl')
-                        #     fd = open(filepath2+'\\mutant_' + str(i) + '_' + str(a) + '_' + str(b) + '\\model_paras.pkl', mode="w", encoding="utf-8")
+                                filepath2+'/mutant_' + str(i) + '_' + str(a) + '_' + str(b) + '/')
+                        # if not os.path.isfile(filepath2+'/mutant_' + str(i) + '_' + str(a) + '_' + str(
+                        #                b) + '/model_paras.pkl'):  # 无文件时创建
+                        #     # os.mknod(filepath2+'/weight/mutant_' + str(i) + '_' + str(a) + '_' + str(
+                        #     #            b) + '/model_paras.pkl')
+                        #     fd = open(filepath2+'/mutant_' + str(i) + '_' + str(a) + '_' + str(b) + '/model_paras.pkl', mode="w", encoding="utf-8")
                         #     fd.close()
                         torch.save(net.state_dict(),
-                                   filepath2+'\\mutant_' + str(i) + '_' + str(a) + '_' + str(
-                                       b) + '\\model_paras.pkl')
+                                   filepath2+'/mutant_' + str(i) + '_' + str(a) + '_' + str(
+                                       b) + '/model_paras.pkl')
             i = 0
             net.load_state_dict(torch.load(filepath1+'model_paras.pkl'))
             for name, param in net.named_parameters():
@@ -124,12 +124,12 @@ def change_weight_(filepath1,filepath2):
                             param[a][b] = param[a][b] * m
                             list_.append([a, b])
                         if not os.path.exists(
-                                filepath2 + '\\mutant_' + str(i) + '_' + str(a) + '_' + str(
-                                        b) + '\\'):  # 若不存在路径则创建
+                                filepath2 + '/mutant_' + str(i) + '_' + str(a) + '_' + str(
+                                        b) + '/'):  # 若不存在路径则创建
                             os.makedirs(
-                                filepath2 + '\\mutant_' + str(i) + '_' + str(a) + '_' + str(b) + '\\')
+                                filepath2 + '/mutant_' + str(i) + '_' + str(a) + '_' + str(b) + '/')
                         torch.save(net.state_dict(),
-                                   filepath2 + '\\mutant_' + str(i) + '_' + str(a) + '_' + str(
+                                   filepath2 + '/mutant_' + str(i) + '_' + str(a) + '_' + str(
                                        b) + '/model_paras.pkl')
             i = 0
             net.load_state_dict(torch.load(filepath1+'model_paras.pkl'))
@@ -151,12 +151,12 @@ def change_weight_(filepath1,filepath2):
                             param[a][b] = param[a][b] * m
                             list_.append([a, b])
                         if not os.path.exists(
-                                filepath2 + '\\mutant_' + str(i) + '_' + str(a) + '_' + str(
-                                        b) + '\\'):  # 若不存在路径则创建
+                                filepath2 + '/mutant_' + str(i) + '_' + str(a) + '_' + str(
+                                        b) + '/'):  # 若不存在路径则创建
                             os.makedirs(
-                                filepath2 + '\\mutant_' + str(i) + '_' + str(a) + '_' + str(b) + '\\')
+                                filepath2 + '/mutant_' + str(i) + '_' + str(a) + '_' + str(b) + '/')
                         torch.save(net.state_dict(),
-                                   filepath2 + '\\mutant_' + str(i) + '_' + str(a) + '_' + str(
+                                   filepath2 + '/mutant_' + str(i) + '_' + str(a) + '_' + str(
                                        b) + '/model_paras.pkl')
             i = 0
             net.load_state_dict(torch.load(filepath1 + 'model_paras.pkl'))
@@ -179,11 +179,11 @@ def change_weight_(filepath1,filepath2):
                             list_.append([a, b])
                         if not os.path.exists(
                                 filepath2 + 'mutant_' + str(i) + '_' + str(a) + '_' + str(
-                                        b) + '\\'):  # 若不存在路径则创建
+                                        b) + '/'):  # 若不存在路径则创建
                             os.makedirs(
-                                filepath2 + '\\mutant_' + str(i) + '_' + str(a) + '_' + str(b) + '\\')
+                                filepath2 + '/mutant_' + str(i) + '_' + str(a) + '_' + str(b) + '/')
                         torch.save(net.state_dict(),
-                                   filepath2 + '\\mutant_' + str(i) + '_' + str(a) + '_' + str(
+                                   filepath2 + '/mutant_' + str(i) + '_' + str(a) + '_' + str(
                                        b) + '/model_paras.pkl')
 def Weight_Shuffing_(filepath1,filepath2):
     net = torch.nn.Sequential(
@@ -226,8 +226,8 @@ def Weight_Shuffing_(filepath1,filepath2):
                     param[c][a] = torch.FloatTensor(x)
                     print(param[c][a])
                     if not os.path.exists(
-                            filepath2+'mutant_' + str(i-2) + '_' +str(a)+'_'+ str(b) + '_' + str(i) + '_'+ str(c) + '_' + str(a) + '\\'):  # 若不存在路径则创建
-                        os.makedirs(filepath2+'mutant_' + str(i-2) + '_' +str(a)+'_'+ str(b) + '_' + str(i) + '_'+ str(c) + '_' + str(a) + '\\')
+                            filepath2+'mutant_' + str(i-2) + '_' +str(a)+'_'+ str(b) + '_' + str(i) + '_'+ str(c) + '_' + str(a) + '/'):  # 若不存在路径则创建
+                        os.makedirs(filepath2+'mutant_' + str(i-2) + '_' +str(a)+'_'+ str(b) + '_' + str(i) + '_'+ str(c) + '_' + str(a) + '/')
                         torch.save(net.state_dict(),filepath2+'mutant_' + str(i-2) + '_' +str(a)+'_'+ str(b) + '_' + str(i) + '_'+ str(c) + '_' + str(a) + '/model_paras.pkl')
 def Neuron_Effect_Blocking_(filepath1,filepath2):
     net = torch.nn.Sequential(
@@ -273,10 +273,10 @@ def Neuron_Effect_Blocking_(filepath1,filepath2):
                     param[x] = torch.FloatTensor(a)
                     #print(param[x])
                     if not os.path.exists(
-                            filepath2+'\\mutant_' + str(i-1) + '_' +str(x)+ '\\'):  # 若不存在路径则创建
-                        os.makedirs( filepath2+'\\mutant_' + str(i-1) + '_' +str(x)+  '\\')
+                            filepath2+'/mutant_' + str(i-1) + '_' +str(x)+ '/'):  # 若不存在路径则创建
+                        os.makedirs( filepath2+'/mutant_' + str(i-1) + '_' +str(x)+  '/')
 
-                    torch.save(net.state_dict(), filepath2+'\\mutant_' + str(i-1) + '_' +str(x)+  '/model_paras.pkl')
+                    torch.save(net.state_dict(), filepath2+'/mutant_' + str(i-1) + '_' +str(x)+  '/model_paras.pkl')
 def Neuron_Switch_(filepath1,filepath2):
     net = torch.nn.Sequential(
         OrderedDict([
@@ -335,9 +335,9 @@ def Neuron_Switch_(filepath1,filepath2):
                     # print(param[x])
                     if not os.path.exists(
                             filepath2+'mutant_' + str(i - 1) + '_' + str(
-                                x) + '_' + str(y) +'\\'):  # 若不存在路径则创建
+                                x) + '_' + str(y) +'/'):  # 若不存在路径则创建
                         os.makedirs(
-                            filepath2+'mutant_' + str(i - 1) + '_' + str(x) + '_' + str(y) +'\\')
+                            filepath2+'mutant_' + str(i - 1) + '_' + str(x) + '_' + str(y) +'/')
 
                     torch.save(net.state_dict(),
                                filepath2+'mutant_' + str(i - 1) + '_' + str(
@@ -380,9 +380,9 @@ def Neuron_Activation_Inverse_(filepath1,filepath2):
                     # print(param[x])
                     if not os.path.exists(
                             filepath2+'mutant_' + str(i - 1) + '_' + str(
-                                x) + '\\'):  # 若不存在路径则创建
+                                x) + '/'):  # 若不存在路径则创建
                         os.makedirs(
-                            filepath2+'mutant_' + str(i - 1) + '_' + str(x) + '\\')
+                            filepath2+'mutant_' + str(i - 1) + '_' + str(x) + '/')
 
                     torch.save(net.state_dict(),
                                filepath2+'mutant_' + str(i - 1) + '_' + str(
@@ -400,8 +400,8 @@ def change_weight():
     )
     net.load_state_dict(torch.load('model_paras.pkl'))
     # 循环创建文件
-    if not os.path.exists('D:\\fault_localization\\weight\\'):  # 若不存在路径则创建
-        os.makedirs('D:\\fault_localization\\weight\\')
+    if not os.path.exists('/home/adv/jupyter_workspace/fault_localization/weight/'):  # 若不存在路径则创建
+        os.makedirs('/home/adv/jupyter_workspace/fault_localization/weight/')
     m = 5
     list = [1, 3, 5, 7]
     for k in range(100):
@@ -426,12 +426,12 @@ def change_weight():
                             param[a][b] = param[a][b] * m
                             list_.append([a, b])
                         if not os.path.exists(
-                                'D:\\fault_localization\\weight\\mutant_' + str(i) + '_' + str(a) + '_' + str(
-                                        b) + '\\'):  # 若不存在路径则创建
+                                '/home/adv/jupyter_workspace/fault_localization/weight/mutant_' + str(i) + '_' + str(a) + '_' + str(
+                                        b) + '/'):  # 若不存在路径则创建
                             os.makedirs(
-                                'D:\\fault_localization\\weight\\mutant_' + str(i) + '_' + str(a) + '_' + str(b) + '\\')
+                                '/home/adv/jupyter_workspace/fault_localization/weight/mutant_' + str(i) + '_' + str(a) + '_' + str(b) + '/')
                         torch.save(net.state_dict(),
-                                   'D:\\fault_localization\\weight\\mutant_' + str(i) + '_' + str(a) + '_' + str(
+                                   '/home/adv/jupyter_workspace/fault_localization/weight/mutant_' + str(i) + '_' + str(a) + '_' + str(
                                        b) + '/model_paras.pkl')
             i = 0
             net.load_state_dict(torch.load('model_paras.pkl'))
@@ -454,12 +454,12 @@ def change_weight():
                             param[a][b] = param[a][b] * m
                             list_.append([a, b])
                         if not os.path.exists(
-                                'D:\\fault_localization\\weight\\mutant_' + str(i) + '_' + str(a) + '_' + str(
-                                        b) + '\\'):  # 若不存在路径则创建
+                                '/home/adv/jupyter_workspace/fault_localization/weight/mutant_' + str(i) + '_' + str(a) + '_' + str(
+                                        b) + '/'):  # 若不存在路径则创建
                             os.makedirs(
-                                'D:\\fault_localization\\weight\\mutant_' + str(i) + '_' + str(a) + '_' + str(b) + '\\')
+                                '/home/adv/jupyter_workspace/fault_localization/weight/mutant_' + str(i) + '_' + str(a) + '_' + str(b) + '/')
                         torch.save(net.state_dict(),
-                                   'D:\\fault_localization\\weight\\mutant_' + str(i) + '_' + str(a) + '_' + str(
+                                   '/home/adv/jupyter_workspace/fault_localization/weight/mutant_' + str(i) + '_' + str(a) + '_' + str(
                                        b) + '/model_paras.pkl')
             i = 0
             net.load_state_dict(torch.load('model_paras.pkl'))
@@ -481,12 +481,12 @@ def change_weight():
                             param[a][b] = param[a][b] * m
                             list_.append([a, b])
                         if not os.path.exists(
-                                'D:\\fault_localization\\weight\\mutant_' + str(i) + '_' + str(a) + '_' + str(
-                                        b) + '\\'):  # 若不存在路径则创建
+                                '/home/adv/jupyter_workspace/fault_localization/weight/mutant_' + str(i) + '_' + str(a) + '_' + str(
+                                        b) + '/'):  # 若不存在路径则创建
                             os.makedirs(
-                                'D:\\fault_localization\\weight\\mutant_' + str(i) + '_' + str(a) + '_' + str(b) + '\\')
+                                '/home/adv/jupyter_workspace/fault_localization/weight/mutant_' + str(i) + '_' + str(a) + '_' + str(b) + '/')
                         torch.save(net.state_dict(),
-                                   'D:\\fault_localization\\weight\\mutant_' + str(i) + '_' + str(a) + '_' + str(
+                                   '/home/adv/jupyter_workspace/fault_localization/weight/mutant_' + str(i) + '_' + str(a) + '_' + str(
                                        b) + '/model_paras.pkl')
             i = 0
             net.load_state_dict(torch.load('model_paras.pkl'))
@@ -508,12 +508,12 @@ def change_weight():
                             param[a][b] = param[a][b] * m
                             list_.append([a, b])
                         if not os.path.exists(
-                                'D:\\fault_localization\\weight\\mutant_' + str(i) + '_' + str(a) + '_' + str(
-                                        b) + '\\'):  # 若不存在路径则创建
+                                '/home/adv/jupyter_workspace/fault_localization/weight/mutant_' + str(i) + '_' + str(a) + '_' + str(
+                                        b) + '/'):  # 若不存在路径则创建
                             os.makedirs(
-                                'D:\\fault_localization\\weight\\mutant_' + str(i) + '_' + str(a) + '_' + str(b) + '\\')
+                                '/home/adv/jupyter_workspace/fault_localization/weight/mutant_' + str(i) + '_' + str(a) + '_' + str(b) + '/')
                         torch.save(net.state_dict(),
-                                   'D:\\fault_localization\\weight\\mutant_' + str(i) + '_' + str(a) + '_' + str(
+                                   '/home/adv/jupyter_workspace/fault_localization/weight/mutant_' + str(i) + '_' + str(a) + '_' + str(
                                        b) + '/model_paras.pkl')
 def Weight_Shuffing():
     net = torch.nn.Sequential(
@@ -527,8 +527,8 @@ def Weight_Shuffing():
     )
     net.load_state_dict(torch.load('model_paras.pkl'))
     # 循环创建文件
-    if not os.path.exists('D:\\fault_localization\\weight_shuffing\\'):  # 若不存在路径则创建
-        os.makedirs('D:\\fault_localization\\weight_shuffing\\')
+    if not os.path.exists('/home/adv/jupyter_workspace/fault_localization/weight_shuffing/'):  # 若不存在路径则创建
+        os.makedirs('/home/adv/jupyter_workspace/fault_localization/weight_shuffing/')
     dict = {1: [500,784], 3: [500,500], 5: [500,500], 7: [10,500]}
     list = [1, 3, 5]
     for k in range(100):
@@ -556,9 +556,9 @@ def Weight_Shuffing():
                     param[c][a] = torch.FloatTensor(x)
                     print(param[c][a])
                     if not os.path.exists(
-                            'D:\\fault_localization\\weight_shuffing\\mutant_' + str(i-2) + '_' +str(a)+'_'+ str(b) + '_' + str(i) + '_'+ str(c) + '_' + str(a) + '\\'):  # 若不存在路径则创建
-                        os.makedirs('D:\\fault_localization\\weight_shuffing\\mutant_' + str(i-2) + '_' +str(a)+'_'+ str(b) + '_' + str(i) + '_'+ str(c) + '_' + str(a) + '\\')
-                        torch.save(net.state_dict(),'D:\\fault_localization\\weight_shuffing\\mutant_' + str(i-2) + '_' +str(a)+'_'+ str(b) + '_' + str(i) + '_'+ str(c) + '_' + str(a) + '/model_paras.pkl')
+                            '/home/adv/jupyter_workspace/fault_localization/weight_shuffing/mutant_' + str(i-2) + '_' +str(a)+'_'+ str(b) + '_' + str(i) + '_'+ str(c) + '_' + str(a) + '/'):  # 若不存在路径则创建
+                        os.makedirs('/home/adv/jupyter_workspace/fault_localization/weight_shuffing/mutant_' + str(i-2) + '_' +str(a)+'_'+ str(b) + '_' + str(i) + '_'+ str(c) + '_' + str(a) + '/')
+                        torch.save(net.state_dict(),'/home/adv/jupyter_workspace/fault_localization/weight_shuffing/mutant_' + str(i-2) + '_' +str(a)+'_'+ str(b) + '_' + str(i) + '_'+ str(c) + '_' + str(a) + '/model_paras.pkl')
 def Neuron_Effect_Blocking():
     net = torch.nn.Sequential(
         OrderedDict([
@@ -570,8 +570,8 @@ def Neuron_Effect_Blocking():
         ])
     )
     # 循环创建文件
-    if not os.path.exists('E:\\fault_localization\\Neuron_Effect_Blocking\\'):  # 若不存在路径则创建
-        os.makedirs('E:\\fault_localization\\Neuron_Effect_Blocking\\')
+    if not os.path.exists('E:/fault_localization/Neuron_Effect_Blocking/'):  # 若不存在路径则创建
+        os.makedirs('E:/fault_localization/Neuron_Effect_Blocking/')
     dict = {1: [500, 784], 3: [500, 500], 5: [500, 500], 7: [10, 500]}
     list = [5]
     list_ = []
@@ -603,10 +603,10 @@ def Neuron_Effect_Blocking():
                     param[x] = torch.FloatTensor(a)
                     #print(param[x])
                     if not os.path.exists(
-                            'E:\\fault_localization\\Neuron_Effect_Blocking\\mutant_' + str(i-1) + '_' +str(x)+ '\\'):  # 若不存在路径则创建
-                        os.makedirs('E:\\fault_localization\\Neuron_Effect_Blocking\mutant_' + str(i-1) + '_' +str(x)+  '\\')
+                            'E:/fault_localization/Neuron_Effect_Blocking/mutant_' + str(i-1) + '_' +str(x)+ '/'):  # 若不存在路径则创建
+                        os.makedirs('E:/fault_localization/Neuron_Effect_Blocking/mutant_' + str(i-1) + '_' +str(x)+  '/')
 
-                    torch.save(net.state_dict(),'E:\\fault_localization\\Neuron_Effect_Blocking\\mutant_' + str(i-1) + '_' +str(x)+  '/model_paras.pkl')
+                    torch.save(net.state_dict(),'E:/fault_localization/Neuron_Effect_Blocking/mutant_' + str(i-1) + '_' +str(x)+  '/model_paras.pkl')
 def Neuron_Switch():
     net = torch.nn.Sequential(
         OrderedDict([
@@ -618,8 +618,8 @@ def Neuron_Switch():
         ])
     )
     # 循环创建文件
-    if not os.path.exists('D:\\fault_localization\\Neuron_Switch_1\\'):  # 若不存在路径则创建
-        os.makedirs('D:\\fault_localization\\Neuron_Switch_1\\')
+    if not os.path.exists('/home/adv/jupyter_workspace/fault_localization/Neuron_Switch/'):  # 若不存在路径则创建
+        os.makedirs('/home/adv/jupyter_workspace/fault_localization/Neuron_Switch/')
     dict = {1: [500, 784], 3: [500, 500], 5: [500, 500], 7: [10, 500]}
     # list = [1, 3, 5, 7]
     list = [7]
@@ -664,13 +664,13 @@ def Neuron_Switch():
                     param[y] = torch.from_numpy(a)
                     # print(param[x])
                     if not os.path.exists(
-                            'D:\\fault_localization\\Neuron_Switch_1\\mutant_' + str(i - 1) + '_' + str(
-                                x) + '_' + str(y) +'\\'):  # 若不存在路径则创建
+                            '/home/adv/jupyter_workspace/fault_localization/Neuron_Switch/mutant_' + str(i - 1) + '_' + str(
+                                x) + '_' + str(y) +'/'):  # 若不存在路径则创建
                         os.makedirs(
-                            'D:\\fault_localization\\Neuron_Switch_1\mutant_' + str(i - 1) + '_' + str(x) + '_' + str(y) +'\\')
+                            '/home/adv/jupyter_workspace/fault_localization/Neuron_Switch/mutant_' + str(i - 1) + '_' + str(x) + '_' + str(y) +'/')
 
                     torch.save(net.state_dict(),
-                               'D:\\fault_localization\\Neuron_Switch_1\\mutant_' + str(i - 1) + '_' + str(
+                               '/home/adv/jupyter_workspace/fault_localization/Neuron_Switch/mutant_' + str(i - 1) + '_' + str(
                                    x) + '_' + str(y) +'/model_paras.pkl')
 #修改循环次数
 def Neuron_Activation_Inverse():
@@ -684,8 +684,8 @@ def Neuron_Activation_Inverse():
         ])
     )
     # 循环创建文件
-    if not os.path.exists('D:\\fault_localization\\Neuron_Activation_Inverse\\'):  # 若不存在路径则创建
-        os.makedirs('D:\\fault_localization\\Neuron_Activation_Inverse\\')
+    if not os.path.exists('/home/adv/jupyter_workspace/fault_localization/Neuron_Activation_Inverse/'):  # 若不存在路径则创建
+        os.makedirs('/home/adv/jupyter_workspace/fault_localization/Neuron_Activation_Inverse/')
     dict = {1: [500, 784], 3: [500, 500], 5: [500, 500], 7: [10, 500]}
     list = [1, 3, 5, 7]
     for k in range(100):
@@ -709,22 +709,22 @@ def Neuron_Activation_Inverse():
                     param[x] = torch.FloatTensor([-a])
                     # print(param[x])
                     if not os.path.exists(
-                            'D:\\fault_localization\\Neuron_Activation_Inverse\\mutant_' + str(i - 1) + '_' + str(
-                                x) + '\\'):  # 若不存在路径则创建
+                            '/home/adv/jupyter_workspace/fault_localization/Neuron_Activation_Inverse/mutant_' + str(i - 1) + '_' + str(
+                                x) + '/'):  # 若不存在路径则创建
                         os.makedirs(
-                            'D:\\fault_localization\\Neuron_Activation_Inverse\mutant_' + str(i - 1) + '_' + str(x) + '\\')
+                            '/home/adv/jupyter_workspace/fault_localization/Neuron_Activation_Inverse/mutant_' + str(i - 1) + '_' + str(x) + '/')
 
                     torch.save(net.state_dict(),
-                               'D:\\fault_localization\\Neuron_Activation_Inverse\\mutant_' + str(i - 1) + '_' + str(
+                               '/home/adv/jupyter_workspace/fault_localization/Neuron_Activation_Inverse/mutant_' + str(i - 1) + '_' + str(
                                    x) + '/model_paras.pkl')
 
 
 if __name__ == '__main__':
-    #Neuron_Activation_Inverse()
-    #Neuron_Switch()
-    #Weight_Shuffing()
+    Neuron_Activation_Inverse()
+    Neuron_Switch()
+    Weight_Shuffing()
     Neuron_Effect_Blocking()
-    #change_weight()
+    change_weight()
     # 交换同层的随机两个神经元
     # x = random.randint(0, 10)
     # y = random.randint(0, 10)
