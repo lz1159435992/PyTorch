@@ -12,6 +12,7 @@ from learning.mnist.model import excel
 import math
 from collections import OrderedDict
 from sklearn import preprocessing
+import datetime
 def Normalize(data):
  shape = data.shape
  data = data.reshape(-1, 1)
@@ -638,23 +639,54 @@ def weight_test(filepath):
     get_failed_num(filepath)
     excel.ge_excel(filepath)
 def neural_test(filepath):
-    #get_weight(filepath)
-
+    time_dict={}
+    starttime = datetime.datetime.now()
+    get_weight(filepath)
+    time_dict['get_weight']=(datetime.datetime.now()-starttime).seconds
+    starttime = datetime.datetime.now()
     get_proportion(filepath)
-
-    #get_difference(filepath)
-    # get_predicted(filepath)
+    time_dict['get_proportion'] = (datetime.datetime.now() - starttime).seconds
+    starttime = datetime.datetime.now()
+    get_difference(filepath)
+    time_dict['get_difference'] = (datetime.datetime.now() - starttime).seconds
+    starttime = datetime.datetime.now()
+    get_predicted(filepath)
+    time_dict['get_predicted'] = (datetime.datetime.now() - starttime).seconds
+    starttime = datetime.datetime.now()
     get_calculate(filepath)
-
+    time_dict['get_calculate'] = (datetime.datetime.now() - starttime).seconds
+    starttime = datetime.datetime.now()
     get_neural_rank_new2(filepath)
+    time_dict['get_neural_rank_new2'] = (datetime.datetime.now() - starttime).seconds
+    starttime = datetime.datetime.now()
     get_failed_num(filepath)
+    time_dict['get_failed_num'] = (datetime.datetime.now() - starttime).seconds
+    starttime = datetime.datetime.now()
     excel.ge_excel(filepath)
+    time_dict['ge_excel'] = (datetime.datetime.now() - starttime).seconds
+    if not os.path.exists(filepath+'\\report\\time.npy'):  # 若不存在路径则创建
+        np.save(filepath+'\\report\\time.npy', time_dict)
+    np.save(filepath + '\\report\\time.npy', time_dict)
 def neural_test_forward(filepath):
-    #get_weight(filepath)
-    #get_difference(filepath)
+    time_dict={}
+    starttime = datetime.datetime.now()
+    get_weight(filepath)
+    time_dict['get_weight'] = (datetime.datetime.now() - starttime).seconds
+    starttime = datetime.datetime.now()
+    get_difference(filepath)
+    time_dict['get_difference'] = (datetime.datetime.now() - starttime).seconds
+    starttime = datetime.datetime.now()
     get_predicted_forward(filepath)
+    time_dict['get_predicted_forward'] = (datetime.datetime.now() - starttime).seconds
+    starttime = datetime.datetime.now()
     get_failed_num(filepath)
+    time_dict['get_failed_num'] = (datetime.datetime.now() - starttime).seconds
+    starttime = datetime.datetime.now()
     excel.ge_excel_forward(filepath)
+    time_dict['ge_excel_forward'] = (datetime.datetime.now() - starttime).seconds
+    if not os.path.exists(filepath+'\\report\\time.npy'):  # 若不存在路径则创建
+        np.save(filepath+'\\report\\time.npy', time_dict)
+    np.save(filepath + '\\report\\time.npy', time_dict)
 def neural_test_final(filepath):
     # get_weight(filepath)
     get_proportion(filepath)

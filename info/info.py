@@ -22,7 +22,7 @@ def ge_excel():
         wb.save('D:\\桌面常用文件\\寒假信息统计\\返校\\每日信息\\test'+str(k)+'.xlsx')
 def ge_excel_super():
     list = []
-    x = 1000
+    x = 6666
     for j in range(1):
         x = x + 1
         list.append("{:.2f}".format(x/100))
