@@ -7,8 +7,8 @@ def ge_excel(filepath):
     ws = wb.add_sheet('test')
     style = xlwt.XFStyle()
     style.num_format_str = '0.000%'
-    report = np.load(filepath+'\\report\\report.npy').item()
-    failed_num = np.load(filepath+'\\report\\failed_num.npy').item()
+    report = np.load(filepath+'/report/report.npy').item()
+    failed_num = np.load(filepath+'/report/failed_num.npy').item()
     print(failed_num)
     i = 0
     for k,v in report.items():
@@ -25,15 +25,15 @@ def ge_excel(filepath):
         ws.write(i, 2, v[1], style)
         ws.write(i, 3, failed_num[k])
         i = i + 1
-    wb.save(filepath+'\\report\\test.xls')
+    wb.save(filepath+'/report/test.xls')
 def ge_excel_forward(filepath):
     wb = xlwt.Workbook()
     # 添加一个表
     ws = wb.add_sheet('test')
     style = xlwt.XFStyle()
     style.num_format_str = '0.000%'
-    report = np.load(filepath+'\\report_forward\\report.npy').item()
-    failed_num = np.load(filepath+'\\report\\failed_num.npy').item()
+    report = np.load(filepath+'/report_forward/report.npy').item()
+    failed_num = np.load(filepath+'/report/failed_num.npy').item()
     print(failed_num)
     i = 0
     for k,v in report.items():
@@ -50,17 +50,17 @@ def ge_excel_forward(filepath):
         ws.write(i, 2, v[1], style)
         ws.write(i, 3, failed_num[k])
         i = i + 1
-    wb.save(filepath+'\\report_forward\\test.xls')
+    wb.save(filepath+'/report_forward/test.xls')
 def ge_excel_final(filepath):
     wb = xlwt.Workbook()
     # 添加一个表
     ws = wb.add_sheet('test')
     style = xlwt.XFStyle()
     style.num_format_str = '0.000%'
-    report = np.load(filepath+'\\report\\report.npy').item()
-    report_forward = np.load(filepath + '\\report_forward\\report.npy').item()
-    report_final = np.load(filepath + '\\report_final\\report.npy').item()
-    failed_num = np.load(filepath+'\\report\\failed_num.npy').item()
+    report = np.load(filepath+'/report/report.npy').item()
+    report_forward = np.load(filepath + '/report_forward/report.npy').item()
+    report_final = np.load(filepath + '/report_final/report.npy').item()
+    failed_num = np.load(filepath+'/report/failed_num.npy').item()
     print(failed_num)
     i = 0
     for k,v in report.items():
@@ -85,6 +85,6 @@ def ge_excel_final(filepath):
         ws.write(i, 6, report_final[k][1], style)
         ws.write(i, 7, failed_num[k])
         i = i + 1
-    wb.save(filepath+'\\report_final\\test.xls')
+    wb.save(filepath+'/report_final/test.xls')
 if __name__ == '__main__':
     ge_excel()

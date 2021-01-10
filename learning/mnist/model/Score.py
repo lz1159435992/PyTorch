@@ -609,16 +609,16 @@ def get_weight_rank_(filepath):
     for i in range(len(result) - 1):  # 这个循环负责设置冒泡排序进行的次数
         if result[i][0] > target_score:
             target = target + 1
-    filepath1 = filepath.rsplit("\\", 1)[0]
-    if not os.path.exists(filepath1 + '\\report\\'):
-        os.makedirs(filepath1 + '\\report\\')
-    if not os.path.exists(filepath1+'\\report\\report.npy'):  # 若不存在路径则创建
+    filepath1 = filepath.rsplit("/", 1)[0]
+    if not os.path.exists(filepath1 + '/report/'):
+        os.makedirs(filepath1 + '/report/')
+    if not os.path.exists(filepath1+'/report/report.npy'):  # 若不存在路径则创建
         report = {}
-        np.save(filepath1+'\\report\\report.npy', report)
-    report = np.load(filepath1+'\\report\\report.npy').item()
-    report[filepath.rsplit("\\", 1)[1]] = [target,target/len(result)]
+        np.save(filepath1+'/report/report.npy', report)
+    report = np.load(filepath1+'/report/report.npy').item()
+    report[filepath.rsplit("/", 1)[1]] = [target,target/len(result)]
     #print(report)
-    np.save(filepath1+'\\report\\report.npy', report)
+    np.save(filepath1+'/report/report.npy', report)
     #print(target)
 def get_neural_rank_(filepath):
     output_score = np.loadtxt(filepath +'/score/neural_output_score.txt')
@@ -684,16 +684,16 @@ def get_neural_rank_(filepath):
     for i in range(len(result) - 1):  # 这个循环负责设置冒泡排序进行的次数
         if result[i][0] > target_score:
             target = target + 1
-    filepath1 = filepath.rsplit("\\", 1)[0]
-    if not os.path.exists(filepath1 + '\\report\\'):
-        os.makedirs(filepath1 + '\\report\\')
-    if not os.path.exists(filepath1+'\\report\\report.npy'):  # 若不存在路径则创建
+    filepath1 = filepath.rsplit("/", 1)[0]
+    if not os.path.exists(filepath1 + '/report/'):
+        os.makedirs(filepath1 + '/report/')
+    if not os.path.exists(filepath1+'/report/report.npy'):  # 若不存在路径则创建
         report = {}
-        np.save(filepath1+'\\report\\report.npy', report)
-    report = np.load(filepath1+'\\report\\report.npy').item()
-    report[filepath.rsplit("\\", 1)[1]] = [target,target/len(result)]
+        np.save(filepath1+'/report/report.npy', report)
+    report = np.load(filepath1+'/report/report.npy').item()
+    report[filepath.rsplit("/", 1)[1]] = [target,target/len(result)]
     print(report)
-    np.save(filepath1+'\\report\\report.npy', report)
+    np.save(filepath1+'/report/report.npy', report)
     print(target)
 def get_neural_rank_forward(filepath):
     output_score = np.loadtxt(filepath +'/score_forward/neural_output_score.txt')
@@ -790,16 +790,16 @@ def get_neural_rank_forward(filepath):
     for i in range(len(result) - 1):  # 这个循环负责设置冒泡排序进行的次数
         if result[i][0] > target_score:
             target = target + 1
-    filepath1 = filepath.rsplit("\\", 1)[0]
-    if not os.path.exists(filepath1 + '\\report_forward\\'):
-        os.makedirs(filepath1 + '\\report_forward\\')
-    if not os.path.exists(filepath1+'\\report_forward\\report.npy'):  # 若不存在路径则创建
+    filepath1 = filepath.rsplit("/", 1)[0]
+    if not os.path.exists(filepath1 + '/report_forward/'):
+        os.makedirs(filepath1 + '/report_forward/')
+    if not os.path.exists(filepath1+'/report_forward/report.npy'):  # 若不存在路径则创建
         report = {}
-        np.save(filepath1+'\\report_forward\\report.npy', report)
-    report = np.load(filepath1+'\\report_forward\\report.npy').item()
-    report[filepath.rsplit("\\", 1)[1]] = [target,target/len(result)]
+        np.save(filepath1+'/report_forward/report.npy', report)
+    report = np.load(filepath1+'/report_forward/report.npy').item()
+    report[filepath.rsplit("/", 1)[1]] = [target,target/len(result)]
     print(report)
-    np.save(filepath1+'\\report_forward\\report.npy', report)
+    np.save(filepath1+'/report_forward/report.npy', report)
     print(target)
 def get_neural_rank_forward_layer(filepath):
     output_score = np.loadtxt(filepath +'/score_forward/neural_output_score.txt')
@@ -863,16 +863,16 @@ def get_neural_rank_forward_layer(filepath):
                 for i in range(len(result) - 1):  # 这个循环负责设置冒泡排序进行的次数
                     if result[i][0] > target_score:
                         target = target + 1
-                filepath1 = filepath.rsplit("\\", 1)[0]
-                if not os.path.exists(filepath1 + '\\report_forward\\'):
-                    os.makedirs(filepath1 + '\\report_forward\\')
-                if not os.path.exists(filepath1 + '\\report_forward\\report.npy'):  # 若不存在路径则创建
+                filepath1 = filepath.rsplit("/", 1)[0]
+                if not os.path.exists(filepath1 + '/report_forward/'):
+                    os.makedirs(filepath1 + '/report_forward/')
+                if not os.path.exists(filepath1 + '/report_forward/report.npy'):  # 若不存在路径则创建
                     report = {}
-                    np.save(filepath1 + '\\report_forward\\report.npy', report)
-                report = np.load(filepath1 + '\\report_forward\\report.npy').item()
-                report[filepath.rsplit("\\", 1)[1]] = [target, target / len(result)]
+                    np.save(filepath1 + '/report_forward/report.npy', report)
+                report = np.load(filepath1 + '/report_forward/report.npy').item()
+                report[filepath.rsplit("/", 1)[1]] = [target, target / len(result)]
                 print(report)
-                np.save(filepath1 + '\\report_forward\\report.npy', report)
+                np.save(filepath1 + '/report_forward/report.npy', report)
                 print(target)
         elif 'fc3' in k:
             if v:
@@ -882,16 +882,16 @@ def get_neural_rank_forward_layer(filepath):
                 for i in range(len(result) - 1):  # 这个循环负责设置冒泡排序进行的次数
                     if result[i][0] > target_score:
                         target = target + 1
-                filepath1 = filepath.rsplit("\\", 1)[0]
-                if not os.path.exists(filepath1 + '\\report_forward\\'):
-                    os.makedirs(filepath1 + '\\report_forward\\')
-                if not os.path.exists(filepath1 + '\\report_forward\\report.npy'):  # 若不存在路径则创建
+                filepath1 = filepath.rsplit("/", 1)[0]
+                if not os.path.exists(filepath1 + '/report_forward/'):
+                    os.makedirs(filepath1 + '/report_forward/')
+                if not os.path.exists(filepath1 + '/report_forward/report.npy'):  # 若不存在路径则创建
                     report = {}
-                    np.save(filepath1 + '\\report_forward\\report.npy', report)
-                report = np.load(filepath1 + '\\report_forward\\report.npy').item()
-                report[filepath.rsplit("\\", 1)[1]] = [target, target / len(result)]
+                    np.save(filepath1 + '/report_forward/report.npy', report)
+                report = np.load(filepath1 + '/report_forward/report.npy').item()
+                report[filepath.rsplit("/", 1)[1]] = [target, target / len(result)]
                 print(report)
-                np.save(filepath1 + '\\report_forward\\report.npy', report)
+                np.save(filepath1 + '/report_forward/report.npy', report)
                 print(target)
         elif 'fc2' in k:
             if v:
@@ -901,16 +901,16 @@ def get_neural_rank_forward_layer(filepath):
                 for i in range(len(result) - 1):  # 这个循环负责设置冒泡排序进行的次数
                     if result[i][0] > target_score:
                         target = target + 1
-                filepath1 = filepath.rsplit("\\", 1)[0]
-                if not os.path.exists(filepath1 + '\\report_forward\\'):
-                    os.makedirs(filepath1 + '\\report_forward\\')
-                if not os.path.exists(filepath1 + '\\report_forward\\report.npy'):  # 若不存在路径则创建
+                filepath1 = filepath.rsplit("/", 1)[0]
+                if not os.path.exists(filepath1 + '/report_forward/'):
+                    os.makedirs(filepath1 + '/report_forward/')
+                if not os.path.exists(filepath1 + '/report_forward/report.npy'):  # 若不存在路径则创建
                     report = {}
-                    np.save(filepath1 + '\\report_forward\\report.npy', report)
-                report = np.load(filepath1 + '\\report_forward\\report.npy').item()
-                report[filepath.rsplit("\\", 1)[1]] = [target, target / len(result)]
+                    np.save(filepath1 + '/report_forward/report.npy', report)
+                report = np.load(filepath1 + '/report_forward/report.npy').item()
+                report[filepath.rsplit("/", 1)[1]] = [target, target / len(result)]
                 print(report)
-                np.save(filepath1 + '\\report_forward\\report.npy', report)
+                np.save(filepath1 + '/report_forward/report.npy', report)
                 print(target)
         elif 'fc1' in k:
             if v:
@@ -920,16 +920,16 @@ def get_neural_rank_forward_layer(filepath):
                 for i in range(len(result) - 1):  # 这个循环负责设置冒泡排序进行的次数
                     if result[i][0] > target_score:
                         target = target + 1
-                filepath1 = filepath.rsplit("\\", 1)[0]
-                if not os.path.exists(filepath1 + '\\report_forward\\'):
-                    os.makedirs(filepath1 + '\\report_forward\\')
-                if not os.path.exists(filepath1 + '\\report_forward\\report.npy'):  # 若不存在路径则创建
+                filepath1 = filepath.rsplit("/", 1)[0]
+                if not os.path.exists(filepath1 + '/report_forward/'):
+                    os.makedirs(filepath1 + '/report_forward/')
+                if not os.path.exists(filepath1 + '/report_forward/report.npy'):  # 若不存在路径则创建
                     report = {}
-                    np.save(filepath1 + '\\report_forward\\report.npy', report)
-                report = np.load(filepath1 + '\\report_forward\\report.npy').item()
-                report[filepath.rsplit("\\", 1)[1]] = [target, target / len(result)]
+                    np.save(filepath1 + '/report_forward/report.npy', report)
+                report = np.load(filepath1 + '/report_forward/report.npy').item()
+                report[filepath.rsplit("/", 1)[1]] = [target, target / len(result)]
                 print(report)
-                np.save(filepath1 + '\\report_forward\\report.npy', report)
+                np.save(filepath1 + '/report_forward/report.npy', report)
                 print(target)
     # output_score_ = output_score.reshape(-1,1)
     # fc3_score_ = fc3_score.reshape(-1,1)
@@ -1019,16 +1019,16 @@ def get_neural_rank_final(filepath):
     for i in range(len(result) - 1):  # 这个循环负责设置冒泡排序进行的次数
         if result[i][0] > target_score:
             target = target + 1
-    filepath1 = filepath.rsplit("\\", 1)[0]
-    if not os.path.exists(filepath1 + '\\report_final\\'):
-        os.makedirs(filepath1 + '\\report_final\\')
-    if not os.path.exists(filepath1+'\\report_final\\report.npy'):  # 若不存在路径则创建
+    filepath1 = filepath.rsplit("/", 1)[0]
+    if not os.path.exists(filepath1 + '/report_final/'):
+        os.makedirs(filepath1 + '/report_final/')
+    if not os.path.exists(filepath1+'/report_final/report.npy'):  # 若不存在路径则创建
         report = {}
-        np.save(filepath1+'\\report_final\\report.npy', report)
-    report = np.load(filepath1+'\\report_final\\report.npy').item()
-    report[filepath.rsplit("\\", 1)[1]] = [target,target/len(result)]
+        np.save(filepath1+'/report_final/report.npy', report)
+    report = np.load(filepath1+'/report_final/report.npy').item()
+    report[filepath.rsplit("/", 1)[1]] = [target,target/len(result)]
     print(report)
-    np.save(filepath1+'\\report_final\\report.npy', report)
+    np.save(filepath1+'/report_final/report.npy', report)
     print(target)
 def get_weight_rank():
     output_score = np.loadtxt('mutants/score/weight/output_score.txt')

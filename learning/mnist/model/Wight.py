@@ -38,8 +38,8 @@ def get_weight_(filepath):
     ])
     )
     net.load_state_dict(torch.load(filepath+'/model_paras.pkl'))
-    if not os.path.exists(filepath+'/weight\\'):  # 若不存在路径则创建
-        os.makedirs(filepath+'/weight\\')
+    if not os.path.exists(filepath+'/weight/'):  # 若不存在路径则创建
+        os.makedirs(filepath+'/weight/')
     for name,param in net.named_parameters():
         #将第一个权重变为10
         # i= i+1
