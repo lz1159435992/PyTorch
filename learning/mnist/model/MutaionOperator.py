@@ -398,7 +398,7 @@ def change_weight():
             ("output", torch.nn.Linear(500, 10)),
         ])
     )
-    net.load_state_dict(torch.load('model_paras.pkl'))
+    net.load_state_dict(torch.load('model_paras.pkl',map_location='cpu'))
     # 循环创建文件
     if not os.path.exists('/home/adv/jupyter_workspace/fault_localization/weight/'):  # 若不存在路径则创建
         os.makedirs('/home/adv/jupyter_workspace/fault_localization/weight/')
@@ -407,7 +407,7 @@ def change_weight():
     for k in range(100):
         for j in list:
             i = 0
-            net.load_state_dict(torch.load('model_paras.pkl'))
+            net.load_state_dict(torch.load('model_paras.pkl',map_location='cpu'))
             for name, param in net.named_parameters():
                 i = i + 1
                 if i == j:
@@ -434,7 +434,7 @@ def change_weight():
                                    '/home/adv/jupyter_workspace/fault_localization/weight/mutant_' + str(i) + '_' + str(a) + '_' + str(
                                        b) + '/model_paras.pkl')
             i = 0
-            net.load_state_dict(torch.load('model_paras.pkl'))
+            net.load_state_dict(torch.load('model_paras.pkl',map_location='cpu'))
             for name, param in net.named_parameters():
                 i = i + 1
                 if i == j:
@@ -462,7 +462,7 @@ def change_weight():
                                    '/home/adv/jupyter_workspace/fault_localization/weight/mutant_' + str(i) + '_' + str(a) + '_' + str(
                                        b) + '/model_paras.pkl')
             i = 0
-            net.load_state_dict(torch.load('model_paras.pkl'))
+            net.load_state_dict(torch.load('model_paras.pkl',map_location='cpu'))
             for name, param in net.named_parameters():
                 i = i + 1
                 if i == j:
@@ -489,7 +489,7 @@ def change_weight():
                                    '/home/adv/jupyter_workspace/fault_localization/weight/mutant_' + str(i) + '_' + str(a) + '_' + str(
                                        b) + '/model_paras.pkl')
             i = 0
-            net.load_state_dict(torch.load('model_paras.pkl'))
+            net.load_state_dict(torch.load('model_paras.pkl',map_location='cpu'))
             for name, param in net.named_parameters():
                 i = i + 1
                 if i == j:
@@ -525,7 +525,7 @@ def Weight_Shuffing():
             ("output", torch.nn.Linear(500, 10)),
         ])
     )
-    net.load_state_dict(torch.load('model_paras.pkl'))
+    net.load_state_dict(torch.load('model_paras.pkl',map_location='cpu'))
     # 循环创建文件
     if not os.path.exists('/home/adv/jupyter_workspace/fault_localization/weight_shuffing/'):  # 若不存在路径则创建
         os.makedirs('/home/adv/jupyter_workspace/fault_localization/weight_shuffing/')
@@ -534,7 +534,7 @@ def Weight_Shuffing():
     for k in range(100):
         for j in list:
             i = 0
-            net.load_state_dict(torch.load('model_paras.pkl'))
+            net.load_state_dict(torch.load('model_paras.pkl',map_location='cpu'))
             for name, param in net.named_parameters():
                 i = i + 1
                 if i == j:
@@ -580,7 +580,7 @@ def Neuron_Effect_Blocking():
     for k in range(100):
         for j in list:
             i = 0
-            net.load_state_dict(torch.load('model_paras.pkl'))
+            net.load_state_dict(torch.load('model_paras.pkl',map_location='cpu'))
             for name, param in net.named_parameters():
                 i = i + 1
                 if i == j:
@@ -631,7 +631,7 @@ def Neuron_Switch():
         #循环层数次数（list个数） 生成4个变异体
         for j in list:
             i = 0
-            net.load_state_dict(torch.load('model_paras.pkl'))
+            net.load_state_dict(torch.load('model_paras.pkl',map_location='cpu'))
             for name, param in net.named_parameters():
                 i = i + 1
                 if i == j:
@@ -691,7 +691,7 @@ def Neuron_Activation_Inverse():
     for k in range(100):
         for j in list:
             i = 0
-            net.load_state_dict(torch.load('model_paras.pkl'))
+            net.load_state_dict(torch.load('model_paras.pkl',map_location='cpu'))
             for name, param in net.named_parameters():
                 i = i + 1
                 if i == j:
@@ -721,10 +721,10 @@ def Neuron_Activation_Inverse():
 
 if __name__ == '__main__':
     Neuron_Activation_Inverse()
-    Neuron_Switch()
     Weight_Shuffing()
     Neuron_Effect_Blocking()
     change_weight()
+    Neuron_Switch()
     # 交换同层的随机两个神经元
     # x = random.randint(0, 10)
     # y = random.randint(0, 10)
