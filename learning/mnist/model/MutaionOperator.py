@@ -720,10 +720,10 @@ def Neuron_Activation_Inverse():
 
 
 if __name__ == '__main__':
-    #Neuron_Activation_Inverse()
-    #Weight_Shuffing()
+    Neuron_Activation_Inverse()
+    Weight_Shuffing()
+    change_weight()
     Neuron_Effect_Blocking()
-    #change_weight()
     Neuron_Switch()
     # 交换同层的随机两个神经元
     # x = random.randint(0, 10)
