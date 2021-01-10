@@ -262,81 +262,81 @@ def calculate_(filepath):
     np.savetxt(filepath +'/failed/fc2_failed.txt', fc2_failed)
     np.savetxt(filepath +'/failed/fc1_failed.txt', fc1_failed)
 def get_calculate(filepath):
-    for dirpath, dirnames, filenames in os.walk(filepath+'\\'):
+    for dirpath, dirnames, filenames in os.walk(filepath+'/'):
         #print(dirpath)
-        print(dirpath.rsplit("\\", 1))
-        if 'mutant' in dirpath.rsplit("\\", 1)[1]:
+        print(dirpath.rsplit("/", 1))
+        if 'mutant' in dirpath.rsplit("/", 1)[1]:
             calculate_(dirpath)
 def get_calculate_new(filepath):
-    for dirpath, dirnames, filenames in os.walk(filepath+'\\'):
+    for dirpath, dirnames, filenames in os.walk(filepath+'/'):
         #print(dirpath)
-        print(dirpath.rsplit("\\", 1))
-        if 'mutant' in dirpath.rsplit("\\", 1)[1]:
+        print(dirpath.rsplit("/", 1))
+        if 'mutant' in dirpath.rsplit("/", 1)[1]:
             calculate_new(dirpath)
 def get_weight(filepath):
-    for dirpath, dirnames, filenames in os.walk(filepath+'\\'):
+    for dirpath, dirnames, filenames in os.walk(filepath+'/'):
         #print(dirpath)
-        print(dirpath.rsplit("\\", 1))
-        if 'mutant' in dirpath.rsplit("\\", 1)[1]:
+        print(dirpath.rsplit("/", 1))
+        if 'mutant' in dirpath.rsplit("/", 1)[1]:
             print(1)
             Wight.get_weight_(dirpath)
 def get_proportion(filepath):
-    for dirpath, dirnames, filenames in os.walk(filepath+'\\'):
-        if 'mutant' in dirpath.rsplit("\\", 1)[1]:
+    for dirpath, dirnames, filenames in os.walk(filepath+'/'):
+        if 'mutant' in dirpath.rsplit("/", 1)[1]:
             #print(1)
             Wight.get_proportion_(dirpath)
 def get_difference(filepath):
-    for dirpath, dirnames, filenames in os.walk(filepath+'\\'):
-        if 'mutant' in dirpath.rsplit("\\", 1)[1]:
+    for dirpath, dirnames, filenames in os.walk(filepath+'/'):
+        if 'mutant' in dirpath.rsplit("/", 1)[1]:
             #print(1)
             Get_difference.get_difference_(dirpath)
 #获取所有变异体的运行情况
 def get_predicted(filepath):
-    for dirpath, dirnames, filenames in os.walk(filepath+'\\'):
-        if 'mutant' in dirpath.rsplit("\\", 1)[1]:
+    for dirpath, dirnames, filenames in os.walk(filepath+'/'):
+        if 'mutant' in dirpath.rsplit("/", 1)[1]:
             processing(dirpath)
 #神经元前向传递运行获取信息,同时获取前向和后向还有最终排名
 def get_predicted_forward(filepath):
-    for dirpath, dirnames, filenames in os.walk(filepath+'\\'):
-        if 'mutant' in dirpath.rsplit("\\", 1)[1]:
+    for dirpath, dirnames, filenames in os.walk(filepath+'/'):
+        if 'mutant' in dirpath.rsplit("/", 1)[1]:
             processing_forward(dirpath, 33)
             #单独排序
             #Score.get_neural_rank_forward_layer(dirpath)
             Score.get_neural_rank_forward(dirpath)
 def get_weight_rank(filepath):
-    for dirpath, dirnames, filenames in os.walk(filepath+'\\'):
-        if 'mutant' in dirpath.rsplit("\\", 1)[1]:
+    for dirpath, dirnames, filenames in os.walk(filepath+'/'):
+        if 'mutant' in dirpath.rsplit("/", 1)[1]:
             Score.get_weight_score_(dirpath,10)
             Score.get_weight_rank_(dirpath)
 def get_neural_rank(filepath):
-    for dirpath, dirnames, filenames in os.walk(filepath+'\\'):
-        if 'mutant' in dirpath.rsplit("\\", 1)[1]:
+    for dirpath, dirnames, filenames in os.walk(filepath+'/'):
+        if 'mutant' in dirpath.rsplit("/", 1)[1]:
             Score.get_neural_score_(dirpath, 10)
             Score.get_neural_rank_(dirpath)
 def get_neural_rank_new(filepath):
-    for dirpath, dirnames, filenames in os.walk(filepath+'\\'):
-        if 'mutant' in dirpath.rsplit("\\", 1)[1]:
+    for dirpath, dirnames, filenames in os.walk(filepath+'/'):
+        if 'mutant' in dirpath.rsplit("/", 1)[1]:
             Score.get_weight_score_(dirpath, 10)
             Score.get_neural_score_new(dirpath)
             Score.get_neural_rank_(dirpath)
 def get_neural_rank_new2(filepath):
-    for dirpath, dirnames, filenames in os.walk(filepath+'\\'):
-        if 'mutant' in dirpath.rsplit("\\", 1)[1]:
+    for dirpath, dirnames, filenames in os.walk(filepath+'/'):
+        if 'mutant' in dirpath.rsplit("/", 1)[1]:
             Score.get_neural_score_new2(dirpath, 33)
             Score.get_neural_rank_(dirpath)
 #同时获取反向 和最终结果 需要在前向排序之后
 def get_neural_rank_new2_final(filepath):
-    for dirpath, dirnames, filenames in os.walk(filepath+'\\'):
-        if 'mutant' in dirpath.rsplit("\\", 1)[1]:
+    for dirpath, dirnames, filenames in os.walk(filepath+'/'):
+        if 'mutant' in dirpath.rsplit("/", 1)[1]:
             Score.get_neural_score_new2(dirpath, 33)
             Score.get_neural_rank_(dirpath)
             Score.get_neural_rank_final(dirpath)
 #统计错误用例个数
 def get_failed_num(filepath):
-    for dirpath, dirnames, filenames in os.walk(filepath + '\\'):
+    for dirpath, dirnames, filenames in os.walk(filepath + '/'):
         # print(dirpath)
-        #print(dirpath.rsplit("\\", 1))
-        if 'mutant' in dirpath.rsplit("\\", 1)[1]:
+        #print(dirpath.rsplit("/", 1))
+        if 'mutant' in dirpath.rsplit("/", 1)[1]:
             failed_number(dirpath)
 #神经元的前向传递
 def processing_forward(filepath, n):
@@ -612,18 +612,18 @@ def failed_number(filepath):
     num = 0
     for key, value in failed_data.items():
         num = num + value
-    #failed_num[filepath.rsplit("\\", 1)[1]] = num
+    #failed_num[filepath.rsplit("/", 1)[1]] = num
     print(num)
-    filepath1 = filepath.rsplit("\\", 1)[0]
-    if not os.path.exists(filepath1 + '\\report\\'):
-        os.makedirs(filepath1 + '\\report\\')
-    if not os.path.exists(filepath1+'\\report\\failed_num.npy'):  # 若不存在路径则创建
+    filepath1 = filepath.rsplit("/", 1)[0]
+    if not os.path.exists(filepath1 + '/report/'):
+        os.makedirs(filepath1 + '/report/')
+    if not os.path.exists(filepath1+'/report/failed_num.npy'):  # 若不存在路径则创建
         failed_num = {}
-        np.save(filepath1+'\\report\\failed_num.npy', failed_num)
-    failed_num = np.load(filepath1+'\\report\\failed_num.npy').item()
-    failed_num[filepath.rsplit("\\", 1)[1]] = num
-    np.save(filepath1 + '\\report\\failed_num.npy', failed_num)
-    # print(filepath.rsplit("\\", 1)[1])
+        np.save(filepath1+'/report/failed_num.npy', failed_num)
+    failed_num = np.load(filepath1+'/report/failed_num.npy').item()
+    failed_num[filepath.rsplit("/", 1)[1]] = num
+    np.save(filepath1 + '/report/failed_num.npy', failed_num)
+    # print(filepath.rsplit("/", 1)[1])
     #print(filepath)
     #np.savetxt(filepath + '/predicted/failed_num.txt', num)
 def weight_test(filepath):
@@ -664,9 +664,9 @@ def neural_test(filepath):
     starttime = datetime.datetime.now()
     excel.ge_excel(filepath)
     time_dict['ge_excel'] = (datetime.datetime.now() - starttime).seconds
-    if not os.path.exists(filepath+'\\report\\time.npy'):  # 若不存在路径则创建
-        np.save(filepath+'\\report\\time.npy', time_dict)
-    np.save(filepath + '\\report\\time.npy', time_dict)
+    if not os.path.exists(filepath+'/report/time.npy'):  # 若不存在路径则创建
+        np.save(filepath+'/report/time.npy', time_dict)
+    np.save(filepath + '/report/time.npy', time_dict)
 def neural_test_forward(filepath):
     time_dict={}
     starttime = datetime.datetime.now()
@@ -684,9 +684,9 @@ def neural_test_forward(filepath):
     starttime = datetime.datetime.now()
     excel.ge_excel_forward(filepath)
     time_dict['ge_excel_forward'] = (datetime.datetime.now() - starttime).seconds
-    if not os.path.exists(filepath+'\\report\\time.npy'):  # 若不存在路径则创建
-        np.save(filepath+'\\report\\time.npy', time_dict)
-    np.save(filepath + '\\report\\time.npy', time_dict)
+    if not os.path.exists(filepath+'/report/time.npy'):  # 若不存在路径则创建
+        np.save(filepath+'/report/time.npy', time_dict)
+    np.save(filepath + '/report/time.npy', time_dict)
 def neural_test_final(filepath):
     # get_weight(filepath)
     get_proportion(filepath)
@@ -703,52 +703,52 @@ if __name__ == '__main__':
     # a = [[2*math.exp(-23),1.7*math.exp(-23),3*math.exp(-18)]]
     # a = Normalize(a)
     # print(a)
-    #neural_test_forward('D:\\fault_localization\\test_weight')
-    #neural_test_final('D:\\fault_localization\\test_weight')
+    #neural_test_forward('D:/fault_localization/test_weight')
+    #neural_test_final('D:/fault_localization/test_weight')
 
-    # neural_test_forward('E:\\fault_localization\\Neuron_Activation_Inverse')
-    # neural_test_forward('E:\\fault_localization\\Neuron_Switch')
-    # neural_test_forward('E:\\fault_localization\\weight')
-    # neural_test_forward('E:\\fault_localization\\weight_shuffing')
+    # neural_test_forward('E:/fault_localization/Neuron_Activation_Inverse')
+    # neural_test_forward('E:/fault_localization/Neuron_Switch')
+    # neural_test_forward('E:/fault_localization/weight')
+    # neural_test_forward('E:/fault_localization/weight_shuffing')
 
-    #get_weight('D:\\fault_localization\\1')
-    #get_difference('D:\\fault_localization\\1')
-    #neural_test_final('D:\\fault_localization\\weight_shuffing')
-    #get_weight_rank('D:\\fault_localization\\weight')
-    #get_failed_num('D:\\fault_localization\\weight')
-    #excel.ge_excel('D:\\fault_localization\\weight')
+    #get_weight('D:/fault_localization/1')
+    #get_difference('D:/fault_localization/1')
+    #neural_test_final('D:/fault_localization/weight_shuffing')
+    #get_weight_rank('D:/fault_localization/weight')
+    #get_failed_num('D:/fault_localization/weight')
+    #excel.ge_excel('D:/fault_localization/weight')
 
 
-    # get_weight_rank('D:\\fault_localization\\weight')
-    #weight_test('D:\\fault_localization\\test_weight')
-    #weight_test('D:\\fault_localization\\weight')
-    #neural_test('E:\\fault_localization\\Neuron_Activation_Inverse')
+    # get_weight_rank('D:/fault_localization/weight')
+    #weight_test('D:/fault_localization/test_weight')
+    #weight_test('D:/fault_localization/weight')
+    #neural_test('E:/fault_localization/Neuron_Activation_Inverse')
 
-    neural_test('E:\\fault_localization\\Neuron_Effect_Blocking')
-    neural_test('E:\\fault_localization\\Neuron_Switch')
-    neural_test('E:\\fault_localization\\weight')
-    neural_test('E:\\fault_localization\\weight_shuffing')
+    neural_test('/home/adv/jupyter_workspace/fault_localization/Neuron_Effect_Blocking')
+    neural_test('/home/adv/jupyter_workspace/fault_localization/Neuron_Switch')
+    #neural_test('/home/adv/jupyter_workspace/fault_localization/weight')
+    neural_test('/home/adv/jupyter_workspace/fault_localization/weight_shuffing')
 
-    #excel.ge_excel('D:\\fault_localization\\weight_shuffing')
-    #neural_test('D:\\fault_localization\\Neuron_Switch')
+    #excel.ge_excel('D:/fault_localization/weight_shuffing')
+    #neural_test('D:/fault_localization/Neuron_Switch')
 
-    # get_calculate_new('D:\\fault_localization\\test')
-    # get_neural_rank('D:\\fault_localization\\test')
-    # get_failed_num('D:\\fault_localization\\test')
-    #excel.ge_excel('D:\\fault_localization\\test')
-    #neural_test_final('D:\\fault_localization\\test')
-    #excel.ge_excel('D:\\fault_localization\\weight')
+    # get_calculate_new('D:/fault_localization/test')
+    # get_neural_rank('D:/fault_localization/test')
+    # get_failed_num('D:/fault_localization/test')
+    #excel.ge_excel('D:/fault_localization/test')
+    #neural_test_final('D:/fault_localization/test')
+    #excel.ge_excel('D:/fault_localization/weight')
 
-    #get_difference('D:\\fault_localization\\test')
-    # get_neural_rank('D:\\fault_localization\\Neuron_Effect_Blocking')
-    #excel.ge_excel('D:\\fault_localization\\Neuron_Effect_Blocking')
-    #get_weight('D:\\fault_localization\\Neuron_Switch_1')
-    #get_difference('D:\\fault_localization\\Neuron_Activation_Inverse')
+    #get_difference('D:/fault_localization/test')
+    # get_neural_rank('D:/fault_localization/Neuron_Effect_Blocking')
+    #excel.ge_excel('D:/fault_localization/Neuron_Effect_Blocking')
+    #get_weight('D:/fault_localization/Neuron_Switch_1')
+    #get_difference('D:/fault_localization/Neuron_Activation_Inverse')
 
-    #get_weight_rank('D:\\fault_localization\\weight_shuffing')
-    #excel.get_excel('D:\\fault_localization\\weight_shuffing')
+    #get_weight_rank('D:/fault_localization/weight_shuffing')
+    #excel.get_excel('D:/fault_localization/weight_shuffing')
 
-    # get_calculate_new('D:\\fault_localization\\weight_shuffing')
-    # get_weight_rank('D:\\fault_localization\\weight_shuffing')
-    # get_failed_num('D:\\fault_localization\\weight_shuffing')
-    # excel.ge_excel('D:\\fault_localization\\weight_shuffing')
+    # get_calculate_new('D:/fault_localization/weight_shuffing')
+    # get_weight_rank('D:/fault_localization/weight_shuffing')
+    # get_failed_num('D:/fault_localization/weight_shuffing')
+    # excel.ge_excel('D:/fault_localization/weight_shuffing')
