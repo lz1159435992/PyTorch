@@ -87,7 +87,11 @@ def get_proportion_(filepath):
                         if k == len(i):
                             j = 1 - x#防止比例不为1
                         else:
-                            j = j / sum
+                            #解决分母为0的情况
+                            if sum == 0:
+                                j = 0
+                            else:
+                                j = j / sum
                         x = x + j
                 if not os.path.exists(dirpath+'_proportion/'):  # 若不存在路径则创建
                     os.makedirs(dirpath+'_proportion/')
