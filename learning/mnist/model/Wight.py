@@ -85,7 +85,10 @@ def get_proportion_(filepath):
                         #print(j.shape)
                         k = k + 1
                         if k == len(i):
-                            j = 1 - x#防止比例不为1
+                            if x== 0:
+                                j = 0
+                            else:
+                                j = 1 - x#防止比例不为1
                         else:
                             #解决分母为0的情况
                             if sum == 0:
